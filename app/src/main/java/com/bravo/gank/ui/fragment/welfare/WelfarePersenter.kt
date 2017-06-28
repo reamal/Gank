@@ -2,17 +2,41 @@ package com.bravo.gank.ui.fragment.welfare
 
 import android.util.Log
 import com.bravo.gank.data.DataManager
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.debug
-import org.jetbrains.anko.error
 
 /**
  * Created by Administrator on 2017/6/27.
  */
 class WelfarePersenter (val welfareViews: WelfareViews,val dataManager: DataManager):AnkoLogger{
-    fun test(s: String) {
-        Log.d("dataManager","dataManager == null : ${dataManager == null}  and  ${s}")
-       debug ( "dataManager == null : ${dataManager == null}  and  ${s}" )
+    val PAGE_SIZE = 20;
+    var pageNumber = 0;
+    fun getWelfare() {
+      dataManager.getDatas("福利",PAGE_SIZE,pageNumber)
+              .subscribeOn(Schedulers.io())
+              .observeOn(AndroidSchedulers.mainThread())
+              .doOnSubscribe { welfareViews.startLoading() }
+              .doOnError { welfareViews.stopLoading() }
+              .subscribe {
+                  Log.e(WelfarePersenter::class.simpleName,"load success!!  ${it.results.toString()}")
+                  welfareViews.showResult(it.results)
+              }
+    }
+
+    fun loadData() {
+        pageNumber++
+        dataManager.getDatas("福利",PAGE_SIZE,pageNumber)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { welfareViews.startLoading() }
+                .doOnError { welfareViews.stopLoading() }
+                .subscribe {
+                    Log.e(WelfarePersenter::class.simpleName,"load more  success!!  ${it.results.toString()}")
+                    welfareViews.showResult(it.results)
+                }
 
     }
+
 }

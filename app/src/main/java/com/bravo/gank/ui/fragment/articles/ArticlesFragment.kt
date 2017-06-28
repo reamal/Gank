@@ -17,7 +17,7 @@ class ArticlesFragment: BaseFragment(){
         }
     }
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View?) {
     }
 
     override fun setUpComponent(appComponent: AppComponent) {
