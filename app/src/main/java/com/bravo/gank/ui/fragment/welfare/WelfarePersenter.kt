@@ -17,10 +17,7 @@ class WelfarePersenter (val welfareViews: WelfareViews,val dataManager: DataMana
       dataManager.getDatas("福利",PAGE_SIZE,pageNumber)
               .subscribeOn(Schedulers.io())
               .observeOn(AndroidSchedulers.mainThread())
-              .doOnSubscribe { welfareViews.startLoading() }
-              .doOnError { welfareViews.stopLoading() }
               .subscribe {
-                  Log.e(WelfarePersenter::class.simpleName,"load success!!  ${it.results.toString()}")
                   welfareViews.showResult(it.results)
               }
     }
@@ -30,10 +27,7 @@ class WelfarePersenter (val welfareViews: WelfareViews,val dataManager: DataMana
         dataManager.getDatas("福利",PAGE_SIZE,pageNumber)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { welfareViews.startLoading() }
-                .doOnError { welfareViews.stopLoading() }
                 .subscribe {
-                    Log.e(WelfarePersenter::class.simpleName,"load more  success!!  ${it.results.toString()}")
                     welfareViews.showResult(it.results)
                 }
 

@@ -1,6 +1,7 @@
 package com.bravo.gank.ui.fragment.welfare
 
 import android.content.Intent
+import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
@@ -9,6 +10,7 @@ import com.bravo.gank.base.AppComponent
 import com.bravo.gank.data.Article
 import com.bravo.gank.ui.act.PhotoActivity
 import com.bravo.gank.ui.fragment.BaseFragment
+import kotlinx.android.synthetic.main.fragment_history.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 import javax.inject.Inject
@@ -35,18 +37,21 @@ class WelfareFragment : BaseFragment(), WelfareViews {
 
     override fun initViews(view: View?) {
         welfarePersenter.getWelfare()
-        val recyclerView = view?.find<RecyclerView>(R.id.recyclerView)
-        recyclerView?.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-//        val adapter =  WelfareAdapter(activity,R.layout.item_girl)
-        recyclerView?.adapter = adapter
-        adapter?.setOnItemClickListener { adapter, view, position ->
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+//        val recyclerView = view?.find<RecyclerView>(R.id.recyclerView)
+        toolbar.visibility = View.VISIBLE
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.adapter = adapter
+        adapter.setOnItemClickListener { adapter, view, position ->
             start2PhotoAcivity(adapter.getItem(position) as Article)
         }
-        adapter?.setOnLoadMoreListener({
+        adapter.setOnLoadMoreListener({
             isRefresh = false
             welfarePersenter.loadData()
         }, recyclerView)
-
     }
 
     override fun setUpComponent(appComponent: AppComponent) {
@@ -54,12 +59,11 @@ class WelfareFragment : BaseFragment(), WelfareViews {
     }
 
     override fun showResult(it: List<Article>) {
-        stopLoading()
         if (isRefresh) {
-            adapter?.setNewData(it)
+            adapter.setNewData(it)
         } else {
-            adapter?.addData(it)
-            adapter?.loadMoreComplete()
+            adapter.addData(it)
+            adapter.loadMoreComplete()
         }
     }
 
