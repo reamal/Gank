@@ -15,4 +15,8 @@ class DataManager(val local: IDataSource,val  remote: IDataSource) {
     fun getHistory():Observable<ResponseBody> {
         return remote.getHistory()
     }
+
+    fun  getDataByDate(date: String): Observable<ResponseBody>{
+        return remote.getDataByDate(date)
+    }
 }

@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.act.PhotoActivity" />
-        <activity android:name=".ui.act.base.HistoryDateActivity"></activity>
+        <activity android:name=".ui.act.HistoryDateActivity" />
+        <activity android:name=".ui.act.ArticleDetailActivity"></activity>
     </application>
 
 </manifest>

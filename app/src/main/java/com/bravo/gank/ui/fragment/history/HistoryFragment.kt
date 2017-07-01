@@ -7,7 +7,7 @@ import android.view.View
 import com.bravo.gank.R
 import com.bravo.gank.base.AppComponent
 import com.bravo.gank.data.History
-import com.bravo.gank.ui.act.base.HistoryDateActivity
+import com.bravo.gank.ui.act.HistoryDateActivity
 import com.bravo.gank.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_history.*
 import javax.inject.Inject

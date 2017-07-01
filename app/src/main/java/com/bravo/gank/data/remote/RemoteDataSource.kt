@@ -14,6 +14,10 @@ import okhttp3.ResponseBody
  */
 class RemoteDataSource(val gankService: GankService) : IDataSource {
 
+    override fun getDataByDate(date: String): Observable<ResponseBody> {
+        return gankService.getDataByDate(date)
+    }
+
     override fun getHistory(): Observable<ResponseBody> {
         return gankService.getHistory()
     }

@@ -11,6 +11,9 @@ import okhttp3.ResponseBody
  * Created by Administrator on 2017/6/27.
  */
 class LocalDataSource :IDataSource{
+    override fun getDataByDate(date: String): Observable<ResponseBody> {
+        return Observable.just(null)
+    }
 
     override fun getHistory(): Observable<ResponseBody> {
       return Observable.just(null)

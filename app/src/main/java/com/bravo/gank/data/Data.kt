@@ -5,6 +5,10 @@ package com.bravo.gank.data
  */
 const val BASE_URL="http://gank.io/"
 
+enum class Type {
+    all,Android,iOS,福利,拓展资源,前端,休息视频
+}
+
 data class Result(val error: Boolean, val results:List<Article>)
 
 data class Article(val _id:String, val createdAt:String, val desc:String,

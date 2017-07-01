@@ -1,4 +1,4 @@
-package com.bravo.gank.ui.act.base
+package com.bravo.gank.ui.act
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

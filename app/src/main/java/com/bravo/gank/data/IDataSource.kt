@@ -10,4 +10,5 @@ import okhttp3.ResponseBody
 interface IDataSource {
     fun  getDatas(type: String, pageSize: Int, pageNumber: Int): Observable<Result>
     fun  getHistory(): Observable<ResponseBody>
+    fun  getDataByDate(date: String): Observable<ResponseBody>
 }
