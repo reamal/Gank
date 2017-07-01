@@ -1,4 +1,4 @@
-package com.bravo.gank.ui.fragment.articles
+package com.bravo.gank.ui.fragment.articles.pages.base
 
 import com.bravo.gank.data.DataManager
 import com.bravo.gank.ui.fragment.FragmentScope
@@ -14,7 +14,7 @@ class ArticlesModule(val articlesViews: ArticlesFragment) {
 
     @FragmentScope
     @Provides
-    fun providesPersenter(dataManager: DataManager):ArticlesPersenter{
+    fun providesPersenter(dataManager: DataManager): ArticlesPersenter {
         return ArticlesPersenter(articlesViews,dataManager)
     }
 }

@@ -13,8 +13,8 @@ import org.jetbrains.anko.debug
 class WelfarePersenter (val welfareViews: WelfareViews,val dataManager: DataManager):AnkoLogger{
     val PAGE_SIZE = 20;
     var pageNumber = 0;
-    fun getWelfare() {
-      dataManager.getDatas("福利",PAGE_SIZE,pageNumber)
+    fun getWelfare(type:String) {
+      dataManager.getDatas(type,PAGE_SIZE,pageNumber)
               .subscribeOn(Schedulers.io())
               .observeOn(AndroidSchedulers.mainThread())
               .subscribe {

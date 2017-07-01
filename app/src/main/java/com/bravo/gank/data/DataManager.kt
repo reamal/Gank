@@ -19,4 +19,8 @@ class DataManager(val local: IDataSource,val  remote: IDataSource) {
     fun  getDataByDate(date: String): Observable<ResponseBody>{
         return remote.getDataByDate(date)
     }
+
+    fun loadPublisheDate() :Observable<PublishedDate>{
+        return remote.loadPublisheDate()
+    }
 }

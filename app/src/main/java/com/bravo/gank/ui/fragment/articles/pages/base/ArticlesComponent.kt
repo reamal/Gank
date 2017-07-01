@@ -1,9 +1,8 @@
-package com.bravo.gank.ui.fragment.articles
+package com.bravo.gank.ui.fragment.articles.pages.base
 
 import com.bravo.gank.base.AppComponent
 import com.bravo.gank.ui.fragment.FragmentScope
 import dagger.Component
-import org.jetbrains.anko.appcompat.v7.Appcompat
 
 /**
  * Created by Administrator on 2017/6/29.

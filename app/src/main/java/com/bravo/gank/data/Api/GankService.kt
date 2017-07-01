@@ -1,5 +1,6 @@
 package com.bravo.gank.data.Api
 
+import com.bravo.gank.data.PublishedDate
 import com.bravo.gank.data.Result
 import io.reactivex.Flowable
 import io.reactivex.Observable
@@ -12,7 +13,6 @@ import retrofit2.http.Path
  */
 interface GankService{
 
-
     @GET("api/data/{type}/{pageSize}/{pageNumber}")
     fun getDatas(@Path("type") type: String,
                  @Path("pageSize") pageSize: Int,
@@ -23,5 +23,8 @@ interface GankService{
 
     @GET("api/day/{date}")
     fun getDataByDate(@Path("date") date:String):Observable<ResponseBody>
+
+    @GET("api/day/history")
+    fun  loadPublisheDate(): Observable<PublishedDate>
 
 }

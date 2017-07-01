@@ -17,3 +17,5 @@ data class Article(val _id:String, val createdAt:String, val desc:String,
                    val url:String, val used:Boolean, val who:String)
 
 data class History(val date:String, val content:String)
+
+data class PublishedDate(val error: Boolean, val results:List<String>)

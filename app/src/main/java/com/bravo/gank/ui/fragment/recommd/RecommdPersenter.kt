@@ -20,10 +20,10 @@ class RecommdPersenter(val recommdView: RecommdView, val dataManager: DataManage
         dataManager.getDataByDate(date)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe { recommdView.startLoading() }
-                .doOnError { recommdView.stopLoading() }
+//                .doOnSubscribe { recommdView.startLoading() }
+//                .doOnError { recommdView.stopLoading() }
                 .subscribe {
-                    recommdView.stopLoading()
+//                    recommdView.stopLoading()
                     recommdView.setUpView(parseRsult(it.string()))
                     recommdView.setWelfImage(imageUrl)
                 }

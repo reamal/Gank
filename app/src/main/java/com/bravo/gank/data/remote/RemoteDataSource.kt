@@ -3,6 +3,7 @@ package com.bravo.gank.data.remote
 import android.util.Log
 import com.bravo.gank.data.Api.GankService
 import com.bravo.gank.data.IDataSource
+import com.bravo.gank.data.PublishedDate
 import com.bravo.gank.data.Result
 import com.bravo.gank.data.local.LocalDataSource
 import io.reactivex.Flowable
@@ -13,6 +14,9 @@ import okhttp3.ResponseBody
  * Created by Administrator on 2017/6/27.
  */
 class RemoteDataSource(val gankService: GankService) : IDataSource {
+    override fun loadPublisheDate(): Observable<PublishedDate> {
+        return gankService.loadPublisheDate()
+    }
 
     override fun getDataByDate(date: String): Observable<ResponseBody> {
         return gankService.getDataByDate(date)

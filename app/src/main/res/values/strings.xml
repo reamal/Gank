@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gank</string>
+    <string name="app_name">干货集中营</string>
     <string name="load_failed">数据下载失败</string>
     <string name="recommend">推荐</string>
     <string name="history">往期</string>

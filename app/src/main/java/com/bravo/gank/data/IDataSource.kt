@@ -11,4 +11,5 @@ interface IDataSource {
     fun  getDatas(type: String, pageSize: Int, pageNumber: Int): Observable<Result>
     fun  getHistory(): Observable<ResponseBody>
     fun  getDataByDate(date: String): Observable<ResponseBody>
+    fun  loadPublisheDate(): Observable<PublishedDate>
 }

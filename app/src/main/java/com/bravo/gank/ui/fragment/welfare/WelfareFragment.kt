@@ -8,6 +8,7 @@ import android.view.View
 import com.bravo.gank.R
 import com.bravo.gank.base.AppComponent
 import com.bravo.gank.data.Article
+import com.bravo.gank.data.Type
 import com.bravo.gank.ui.act.PhotoActivity
 import com.bravo.gank.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_history.*
@@ -18,7 +19,7 @@ import javax.inject.Inject
 /**
  * Created by Administrator on 2017/6/26.
  */
-class WelfareFragment : BaseFragment(), WelfareViews {
+open class WelfareFragment : BaseFragment(), WelfareViews {
 
 
     override fun attachLayoutId(): Int = R.layout.fragment_girl
@@ -36,7 +37,11 @@ class WelfareFragment : BaseFragment(), WelfareViews {
     }
 
     override fun initViews(view: View?) {
-        welfarePersenter.getWelfare()
+        welfarePersenter.getWelfare(getType())
+    }
+
+     fun getType():String{
+        return Type.福利.name
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

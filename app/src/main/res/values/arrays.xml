@@ -3,6 +3,7 @@
     <string-array name="title">
 
         <item>今日推荐</item>
+        <!--<item>All</item>-->
         <item>Android</item>
         <item>iOS</item>
         <item>前端</item>

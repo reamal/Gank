@@ -56,8 +56,6 @@ class RecommdFragment : BaseFragment(),RecommdView,AnkoLogger {
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.adapter=recommendAdapter
         recommendAdapter.onItemClickListener = BaseQuickAdapter.OnItemClickListener { adapter, view, position ->
-
-            activity?.toast("item Onclick ${position}")
             start2DetailAcivity(adapter.getItem(position) as Article)
         }
     }
