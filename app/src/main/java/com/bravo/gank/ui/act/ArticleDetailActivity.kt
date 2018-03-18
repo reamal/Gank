@@ -44,8 +44,31 @@ class ArticleDetailActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.useWideViewPort = true
 
-        webView.setWebViewClient(object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+//        webView.webViewClient = object : WebViewClient(){
+//
+//            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+//                view?.loadUrl(url)
+//                return true
+//            }
+//
+//            override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
+//                handler?.proceed()
+//            }
+//
+//            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+////                showProgress()
+//                super.onPageStarted(view, url, favicon)
+//            }
+//
+//            override fun onPageFinished(view: WebView?, url: String?) {
+////                dimssProgress()
+//                super.onPageFinished(view, url)
+//
+//            }
+//        }
+
+        webView.setWebViewClient(object : WebViewClient(){
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 view?.loadUrl(url)
                 return true
             }
@@ -65,6 +88,7 @@ class ArticleDetailActivity : AppCompatActivity() {
 
             }
         })
+
         webView.loadUrl(url)
     }
 
